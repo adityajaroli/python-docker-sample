@@ -1,0 +1,27 @@
+#To define, scale and run services on Docker platform, use this file.
+#This file defines how container should behave in production
+version: "3"
+services:
+  # Service name
+  aditya_service:
+    # replace username/repo:tag with your name and image details
+    # pulls the image from registry
+    image: adityajaroli/practice:python
+    deploy:
+      #tells to run 5 instances of service named aditya_service
+      replicas: 5
+      resources:
+        limits:
+          cpus: "0.1"
+          memory: 50M
+      restart_policy:
+        condition: on-failure
+    ports:
+      #Map Host's 80 port to service's 80 port
+      - "80:80"
+    networks:
+      #Loadbalanced network
+      - webnet
+#define the loadbalanced network
+networks:
+  webnet:
