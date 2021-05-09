@@ -1,0 +1,13 @@
+name: 'Random Number'
+description: 'Random Number Generator'
+
+outputs: # id of output
+  random-number:
+    description: "Random number"
+    value: ${{ steps.random-number-generator.outputs.random-id }}
+runs:
+  using: "composite"
+  steps:
+    - id: random-number-generator
+      run: echo "::set-output name=random-id::$(echo $RANDOM)"
+      shell: bash
