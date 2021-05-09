@@ -40,6 +40,6 @@ jobs:
 
       - id: Testing env variables
         env:
-          super_secret: Practice GH Actions
+          super_secret: Practice
         run: echo ${{super_secret}}
         shell: bash
