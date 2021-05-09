@@ -38,7 +38,7 @@ jobs:
         run: echo random-number ${{ steps.rand_num_gen.outputs.random-number }}
         shell: bash
 
-      - id: Testing env variables
+      - id: testing_env_var
         env:
           super_secret: Practice
         run: echo $super_secret
