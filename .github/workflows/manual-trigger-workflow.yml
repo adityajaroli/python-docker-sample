@@ -1,0 +1,17 @@
+name: "Trigger workflow manually or from some other workflow"
+on:
+  workflow_dispatch:
+    inputs:
+      testVar:
+        description: 'Testing Variable'
+        required: true
+        default: "world"
+jobs:
+  Manual-Run-Workflow:
+    name: Testing Manual run of workflow
+    runs-on: ubuntu-latest
+    steps:
+      - name: Printing passed params
+        id: print-params-id
+        run: echo "Hello ${{ github.event.inputs.testVar }}!"
+        shell: bash
